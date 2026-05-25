@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SummerSound Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Unbounded:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+
+    <!-- Top bar: nav + city tabs in a proper grid row -->
+    <div class="top-bar">
+      <nav class="left-nav">
+        <a href="#about">О ФЕСТИВАЛЕ</a>
+        <a href="#faq">ВОПРОС-ОТВЕТ</a>
+        <a href="#contacts">КОНТАКТЫ</a>
+        <a href="#accreditation">АККРЕДИТАЦИЯ</a>
+      </nav>
+
+      <div class="city-tabs">
+        <button class="city-tab active" data-city="moscow">МОСКВА</button>
+        <button class="city-tab" data-city="spb">САНКТ-ПЕТЕРБУРГ</button>
+        <button class="city-tab" data-city="nn">НИЖНИЙ НОВГОРОД</button>
+      </div>
+
+      <div class="top-bar-spacer"></div>
+    </div>
+
+    <!-- Central logo SVG (the decorative S / full logo mark) -->
+    <div class="logo-wrap">
+      <img src="лого.svg" alt="SummerSound" class="logo-svg" />
+    </div>
+
+    <!-- Brand content below the logo -->
+    <div class="hero-content">
+      <h1 class="logo-text">SUMMERSOUND</h1>
+
+      <div class="partner-line">
+        <span class="times-sign">×</span>
+        <!-- Beeline bee icon: black pill with yellow stripes -->
+        <svg class="bee-icon" viewBox="0 0 44 28" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="28" rx="14" fill="#111"/>
+          <rect x="8"  y="8"  width="28" height="4" rx="2" fill="#FFD600"/>
+          <rect x="8"  y="16" width="28" height="4" rx="2" fill="#FFD600"/>
+        </svg>
+        <span class="beeline-label">билайн</span>
+      </div>
+
+      <p class="event-dates">14 июля — 16 августа</p>
+      <p class="event-venue">дизайн завод</p>
+    </div>
+  </section>
+
+  <!-- ===== ARTISTS ===== -->
+  <section class="artists-section">
+
+    <!-- МОСКВА -->
+    <div class="city-artists active" id="artists-moscow">
+      <div class="artists-grid">
+        <img src="singers/хаски сайт.png"       alt="ХАСКИ"       class="artist-card" />
+        <img src="singers/лсп сайт.png"          alt="ЛСП"         class="artist-card" />
+        <img src="singers/мейби бейби сайт.png"  alt="МЭЙБИ БЭЙБИ" class="artist-card" />
+        <img src="singers/фкдук сайт.png"        alt="FEDUK"       class="artist-card" />
+        <img src="singers/айова сайт.png"        alt="IOWA"        class="artist-card" />
+        <img src="singers/салуки сайт.png"       alt="SALUKI"      class="artist-card" />
+        <img src="singers/лолита сайт.png"       alt="ЛОЛИТА"      class="artist-card" />
+        <img src="singers/крем сайт.png"         alt="CREAM SODA"  class="artist-card" />
+      </div>
+    </div>
+
+    <!-- САНКТ-ПЕТЕРБУРГ -->
+    <div class="city-artists" id="artists-spb">
+      <div class="coming-soon">
+        <div class="coming-soon-inner">
+          <p class="coming-soon-title">САНКТ-ПЕТЕРБУРГ</p>
+          <p class="coming-soon-sub">Артисты скоро будут объявлены</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- НИЖНИЙ НОВГОРОД -->
+    <div class="city-artists" id="artists-nn">
+      <div class="coming-soon">
+        <div class="coming-soon-inner">
+          <p class="coming-soon-title">НИЖНИЙ НОВГОРОД</p>
+          <p class="coming-soon-sub">Артисты скоро будут объявлены</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== FILLER SECTIONS ===== -->
+  <section id="about" class="info-section">
+    <div class="info-content">
+      <h2>О ФЕСТИВАЛЕ</h2>
+      <p>SummerSound — ежегодный музыкальный фестиваль под открытым небом, объединяющий лучших российских исполнителей на трёх городских площадках. Лето, музыка, атмосфера — всё, что нужно для незабываемого вечера.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="info-section alt">
+    <div class="info-content">
+      <h2>ВОПРОС-ОТВЕТ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Как купить билет?</summary>
+          <p>Билеты можно приобрести на официальном сайте или в кассах площадки в день события.</p>
+        </details>
+        <details>
+          <summary>Можно ли пройти с детьми?</summary>
+          <p>Фестиваль допускает посетителей от 16 лет. Дети до 16 лет — в сопровождении взрослых.</p>
+        </details>
+        <details>
+          <summary>Что нельзя проносить на площадку?</summary>
+          <p>Запрещены: алкоголь в стеклянной таре, профессиональные камеры, пиротехника.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="info-section">
+    <div class="info-content">
+      <h2>КОНТАКТЫ</h2>
+      <p>Email: <a href="mailto:info@summersound.ru">info@summersound.ru</a></p>
+      <p>Телефон: +7 (495) 000-00-00</p>
+      <p>Адрес: Москва, Дизайн Завод «Флакон», ул. Большая Новодмитровская, 36</p>
+    </div>
+  </section>
+
+  <section id="accreditation" class="info-section alt">
+    <div class="info-content">
+      <h2>АККРЕДИТАЦИЯ</h2>
+      <p>Заявки на пресс-аккредитацию принимаются до 10 июля. Отправьте запрос на <a href="mailto:press@summersound.ru">press@summersound.ru</a> с темой письма «Аккредитация — [СМИ]».</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

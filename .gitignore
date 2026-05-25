@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+# keep design references local, don't push to repo
+main_page.png
+moscow_page.png
+summersound-v2.png

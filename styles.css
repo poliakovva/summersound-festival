@@ -1,0 +1,363 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFD600;
+  font-family: 'Montserrat', sans-serif;
+  color: #111;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFD600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 48px 60px;
+  gap: 0;
+}
+
+/* ===========================
+   TOP BAR (nav + city tabs)
+=========================== */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  padding: 36px 48px 0;
+  z-index: 20;
+}
+
+.top-bar-spacer {
+  /* mirrors nav width to keep tabs visually centered */
+}
+
+/* ===========================
+   LEFT NAVIGATION
+=========================== */
+.left-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.left-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #111;
+  line-height: 1.5;
+  transition: opacity 0.2s;
+}
+
+.left-nav a:hover {
+  opacity: 0.6;
+}
+
+/* ===========================
+   CITY TABS
+=========================== */
+.city-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.10);
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.city-tab {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #333;
+  padding: 8px 20px;
+  border-radius: 50px;
+  transition: background 0.25s, color 0.25s;
+  white-space: nowrap;
+}
+
+.city-tab:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.city-tab.active {
+  background: #111;
+  color: #FFD600;
+}
+
+/* ===========================
+   LOGO SVG (central mark)
+=========================== */
+.logo-wrap {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-svg {
+  width: min(46vw, 380px);
+  height: auto;
+  display: block;
+}
+
+/* ===========================
+   HERO CONTENT (below logo)
+=========================== */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.logo-text {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: min(9vw, 80px);
+  line-height: 1;
+  color: #111;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Partner line: × Beeline */
+.partner-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -4px;
+}
+
+.times-sign {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1;
+}
+
+.bee-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.beeline-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.01em;
+}
+
+.event-dates {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 1.6vw, 20px);
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 0.04em;
+}
+
+.event-venue {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(12px, 1.4vw, 18px);
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ===========================
+   ARTISTS SECTION
+=========================== */
+.artists-section {
+  background-color: #FFD600;
+  padding: 40px 48px 80px;
+}
+
+.city-artists {
+  display: none;
+}
+
+.city-artists.active {
+  display: block;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artist-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+}
+
+.artist-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   COMING SOON
+=========================== */
+.coming-soon {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-inner {
+  text-align: center;
+}
+
+.coming-soon-title {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(24px, 4vw, 48px);
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.coming-soon-sub {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===========================
+   INFO SECTIONS (filler)
+=========================== */
+.info-section {
+  background-color: #FFD600;
+  padding: 80px 48px;
+  border-top: 2px solid rgba(0, 0, 0, 0.10);
+}
+
+.info-section.alt {
+  background-color: #111;
+  color: #FFD600;
+}
+
+.info-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-content h2 {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 36px);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.info-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.info-content a {
+  border-bottom: 2px solid currentColor;
+  transition: opacity 0.2s;
+}
+
+.info-content a:hover {
+  opacity: 0.7;
+}
+
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+details {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+details summary {
+  padding: 18px 24px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.03em;
+}
+
+details summary::-webkit-details-marker { display: none; }
+
+details summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details p {
+  padding: 0 24px 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  opacity: 0.85;
+}
