@@ -126,12 +126,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Extra room so animated pills don't get clipped by parent */
+  padding: 32px;
 }
 
 .logo-svg {
   width: min(46vw, 380px);
   height: auto;
   display: block;
+  overflow: visible; /* pills may move outside viewBox during animation */
 }
 
 /* ===========================
