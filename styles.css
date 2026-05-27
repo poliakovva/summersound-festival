@@ -279,6 +279,120 @@ a {
 }
 
 /* ===========================
+   ПИВО ПО АКЦИИ
+=========================== */
+.beer-section {
+  background: #111;
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.beer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.beer-emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.beer-title {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 5vw, 64px);
+  color: #FFD600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.beer-sub {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 214, 0, 0.5);
+  margin-bottom: 48px;
+}
+
+.beer-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.beer-card {
+  background: #1e1e1e;
+  border: 2px solid rgba(255, 214, 0, 0.2);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 180px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.beer-card:hover {
+  border-color: #FFD600;
+  transform: translateY(-4px);
+}
+
+.beer-card--hot {
+  border-color: #FF1AB2;
+  background: #1a0d14;
+}
+
+.beer-card--hot:hover {
+  border-color: #FF1AB2;
+}
+
+.beer-badge {
+  position: absolute;
+  top: -12px;
+  background: #FF1AB2;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.beer-name {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #FFD600;
+  letter-spacing: 0.05em;
+}
+
+.beer-old {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: line-through;
+}
+
+.beer-price {
+  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: #fff;
+  line-height: 1;
+}
+
+.beer-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.03em;
+}
+
+/* ===========================
    INFO SECTIONS (filler)
 =========================== */
 .info-section {
