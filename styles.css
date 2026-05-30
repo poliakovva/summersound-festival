@@ -28,6 +28,10 @@ body.theme-nn {
   padding: 0;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -474,9 +478,9 @@ details p {
 }
 
 .artist-desc p {
-  font-size: 14px;
+  font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.7;
   color: inherit;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   opacity: 0.85;
 }
