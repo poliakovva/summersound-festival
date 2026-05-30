@@ -256,9 +256,17 @@ async function initAllLogos() {
   loadCityLogo('nn',  logoWrap, false);
 
   switchLogo = function (city) {
+    // Switch hero S logo
     logoWrap.querySelectorAll('[data-logo-city]').forEach(el => {
       el.style.display = el.dataset.logoCity === city ? 'block' : 'none';
     });
+    // Switch brand wordmark (white on SPb/NN, default on Moscow)
+    const brandLogo = document.querySelector('.brand-logo');
+    if (brandLogo) {
+      brandLogo.src = (city === 'spb' || city === 'nn')
+        ? 'white_summersound.svg'
+        : 'summersound_logo.png';
+    }
   };
 
   playLogoWave = function () {

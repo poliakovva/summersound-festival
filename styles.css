@@ -15,8 +15,8 @@ body.theme-spb {
 
 body.theme-nn {
   --page-bg:  #FF0493;
-  --page-fg:  #111;
-  --page-sub: rgba(0, 0, 0, 0.45);
+  --page-fg:  #fff;
+  --page-sub: rgba(255, 255, 255, 0.5);
 }
 
 /* ===========================
