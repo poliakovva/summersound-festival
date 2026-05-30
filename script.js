@@ -3,7 +3,7 @@
 ============================================================= */
 const ARTISTS_DATA = {
   haski: {
-    date: '20.07', name: 'ХАСКИ', venue: '19:30, Дизайн завод',
+    date: '20.07', name: 'ХАСКИ', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
     desc: [
       'Большое летнее шоу от Хаски на Summer Sound х билайн!',
       'Главный продюсер русского рэпа отправляется в тур по городам Summer Sound х билайн с незабываемым шоу под открытым небом. В программе — все главные хиты, а также треки с альбома «Партизан».',
@@ -13,7 +13,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/хаски сайт.png')
   },
   lsp: {
-    date: '22.07', name: 'ЛСП', venue: '19:30, Дизайн завод',
+    date: '22.07', name: 'ЛСП', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
     desc: [
       'Большое летнее шоу от ЛСП на Summer Sound х билайн!',
       'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
@@ -22,7 +22,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/лсп сайт.png')
   },
   maybe: {
-    date: '25.07', name: 'МЭЙБИ БЭЙБИ', venue: '19:30, Дизайн завод',
+    date: '25.07', name: 'МЭЙБИ БЭЙБИ', venue: '19:30, Дизайн завод', logo: 'orange_logo.svg',
     desc: [
       'Главная поп-панк принцесса новой школы отправляется в тур по городам Summer Sound х билайн с ярким шоу под открытым небом.',
       'В программе — все любимые хиты, свежие релизы и максимум энергии, за которую вы её знаете.',
@@ -31,7 +31,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/мейби бейби сайт.png')
   },
   feduk: {
-    date: '27.07', name: 'FEDUK', venue: '19:30, Дизайн завод',
+    date: '27.07', name: 'FEDUK', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
     desc: [
       'Главный меланхоличный хитмейкер русской сцены отправляется в тур по городам Summer Sound х билайн с тёплыми летними концертами под открытым небом.',
       'В программе — все главные хиты, новые треки и та самая атмосфера, за которую вы любите FEDUK.',
@@ -40,7 +40,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/фкдук сайт.png')
   },
   iowa: {
-    date: '30.07', name: 'IOWA', venue: '19:30, Дизайн завод',
+    date: '30.07', name: 'IOWA', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
     desc: [
       'IOWA на Summer Sound х билайн!',
       'IOWA — это тот редкий пример музыкальной группы, которая, добившись популярности, не потеряла свою уникальную атмосферу. Каждый концерт — энергетический обмен, который продолжает задавать высокую планку в современной музыкальной индустрии.',
@@ -49,7 +49,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/айова сайт.png')
   },
   saluki: {
-    date: '29.07', name: 'SALUKI', venue: '19:30, Дизайн завод',
+    date: '29.07', name: 'SALUKI', venue: '19:30, Дизайн завод', logo: 'orange_logo.svg',
     desc: [
       'SALUKI — один из тех, кто задаёт звук современной сцены, смешивая хит-хоп, электронику и поп в свой неповторимый и узнаваемый стиль.',
       'Его летние концерты на Summer Sound х билайн уже стали традицией — и каждый раз это новый уровень. Вас ждёт полное погружение: треки с BOISHIE KURTKI, ваб WILD EAST, главные хиты и новая эра «EUPHORIA».',
@@ -58,7 +58,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/салуки сайт.png')
   },
   lolita: {
-    date: '02.08', name: 'ЛОЛИТА', venue: '19:30, Дизайн завод',
+    date: '02.08', name: 'ЛОЛИТА', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
     desc: [
       'Лолита на Summer Sound х билайн!',
       'Полтора часа живого, откровенного диалога, где сцена исчезает, а остаётся ощущение, будто вы болтаете с близким человеком — той самой подругой, которая и рассмешит до слёз, и скажет правду без прикрас.',
@@ -68,7 +68,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/лолита сайт.png')
   },
   cream: {
-    date: '04.08', name: 'CREAM SODA', venue: '19:30, Дизайн завод',
+    date: '04.08', name: 'CREAM SODA', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
     desc: [
       'Большое летнее шоу от Cream Soda на Summer Sound х билайн!',
       'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
@@ -340,6 +340,10 @@ function openArtistOverlay(artistId) {
   const imgEl = document.getElementById('ap-img');
   imgEl.src = data.img;
   imgEl.alt = data.name;
+
+  // Set artist-specific background S logo
+  const bgLogo = document.getElementById('artist-bg-logo');
+  if (bgLogo) bgLogo.src = data.logo;
 
   // Sync city tabs inside overlay to current active city
   overlay.querySelectorAll('.city-tab').forEach(t => {
