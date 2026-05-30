@@ -188,7 +188,7 @@ a {
   font-family: 'TT Commons', sans-serif;
   font-size: clamp(14px, 1.6vw, 20px);
   font-weight: 600;
-  color: #111;
+  color: var(--page-fg);
   letter-spacing: 0.04em;
 }
 
@@ -196,7 +196,7 @@ a {
   font-family: 'TT Commons', sans-serif;
   font-size: clamp(12px, 1.4vw, 18px);
   font-weight: 400;
-  color: #111;
+  color: var(--page-fg);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
