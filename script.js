@@ -52,9 +52,9 @@ let switchLogo   = () => {};
 let playLogoWave = () => {};
 
 const CITY_SVGS = {
-  moscow: 'лого.svg',
-  spb:    'singers_blocks/лого спб.svg',
-  nn:     'singers_blocks/лого нн.svg',
+  moscow: encodeURI('лого.svg'),
+  spb:    encodeURI('singers_blocks/лого спб.svg'),
+  nn:     encodeURI('singers_blocks/лого нн.svg'),
 };
 
 async function initAllLogos() {
