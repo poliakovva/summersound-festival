@@ -22,13 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('theme-moscow', 'theme-spb', 'theme-nn');
       if (city !== 'moscow') document.body.classList.add(`theme-${city}`);
 
+      // Replay logo wave
+      playLogoWave();
+
       document.querySelector('.artists-section').scrollIntoView({
         behavior: 'smooth', block: 'start'
       });
     });
   });
 
-  // Kick off logo animation
+  // Kick off logo animation (also sets up playLogoWave)
   initLogoAnimation();
 });
 
@@ -48,6 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
    4. Animate each <g> sequentially top-to-bottom with a
       sine-wave translate: 0 → outward → 0.
 ============================================================= */
+
+// Will be replaced with the real function once SVG is ready
+let playLogoWave = () => {};
+
 async function initLogoAnimation() {
   const imgEl = document.querySelector('.logo-svg');
   if (!imgEl) return;
@@ -135,31 +142,47 @@ async function initLogoAnimation() {
   // ── Replace <img> with the inline SVG ──────────────────────
   imgEl.parentNode.replaceChild(svgEl, imgEl);
 
-  // ── Play the wave ──────────────────────────────────────────
-  const gEls        = [...svgEl.querySelectorAll('g[data-nx]')];
-  const MOVE        = 50;   // SVG user units outward per pill
-  const PILL_DUR    = 520;  // ms — one pill's extend-and-retract
-  const WAVE_SPAN   = 1800; // ms — stagger window (first → last pill)
+  // ── Build the reusable wave function ───────────────────────
+  const gEls     = [...svgEl.querySelectorAll('g[data-nx]')];
+  const MOVE     = 50;   // SVG user units outward per pill
+  const PILL_DUR = 520;  // ms — one pill's extend-and-retract
+  const WAVE_SPAN = 1800; // ms — stagger window (first → last pill)
 
-  gEls.forEach((g, i) => {
-    const nx    = parseFloat(g.dataset.nx);
-    const ny    = parseFloat(g.dataset.ny);
-    const delay = (i / Math.max(gEls.length - 1, 1)) * WAVE_SPAN;
+  // Pending timeouts so a new wave cancels an in-progress one
+  let pendingTimers = [];
 
-    setTimeout(() => {
-      const t0 = performance.now();
+  playLogoWave = function () {
+    // Cancel any still-pending previous wave
+    pendingTimers.forEach(id => clearTimeout(id));
+    pendingTimers = [];
+    // Reset all transforms immediately
+    gEls.forEach(g => g.removeAttribute('transform'));
 
-      function frame(now) {
-        const t    = Math.min((now - t0) / PILL_DUR, 1);
-        const wave = Math.sin(t * Math.PI);          // 0 → 1 → 0
-        g.setAttribute('transform',
-          `translate(${(nx * MOVE * wave).toFixed(2)},${(ny * MOVE * wave).toFixed(2)})`
-        );
-        if (t < 1) requestAnimationFrame(frame);
-        else        g.removeAttribute('transform');
-      }
+    gEls.forEach((g, i) => {
+      const nx    = parseFloat(g.dataset.nx);
+      const ny    = parseFloat(g.dataset.ny);
+      const delay = (i / Math.max(gEls.length - 1, 1)) * WAVE_SPAN;
 
-      requestAnimationFrame(frame);
-    }, delay);
-  });
+      const id = setTimeout(() => {
+        const t0 = performance.now();
+
+        function frame(now) {
+          const t    = Math.min((now - t0) / PILL_DUR, 1);
+          const wave = Math.sin(t * Math.PI);          // 0 → 1 → 0
+          g.setAttribute('transform',
+            `translate(${(nx * MOVE * wave).toFixed(2)},${(ny * MOVE * wave).toFixed(2)})`
+          );
+          if (t < 1) requestAnimationFrame(frame);
+          else        g.removeAttribute('transform');
+        }
+
+        requestAnimationFrame(frame);
+      }, delay);
+
+      pendingTimers.push(id);
+    });
+  };
+
+  // Play on page load
+  playLogoWave();
 }
