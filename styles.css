@@ -152,9 +152,10 @@ a {
 }
 
 .brand-logo {
-  width: min(72vw, 640px);
+  width: min(44vw, 400px);
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 
 .event-dates {
