@@ -150,8 +150,8 @@ let playLogoWave = () => {};
 
 const CITY_SVGS = {
   moscow: encodeURI('лого.svg'),
-  spb:    encodeURI('singers_blocks/лого спб.svg'),
-  nn:     encodeURI('singers_blocks/лого нн.svg'),
+  spb:    'singers_blocks/logo-spb.svg',
+  nn:     'singers_blocks/logo-nn.svg',
 };
 
 async function initAllLogos() {
@@ -167,8 +167,8 @@ async function initAllLogos() {
   // Wire up helpers once Moscow is ready
   const OVERLAY_BG_LOGOS = {
     moscow: encodeURI('лого.svg'),
-    spb:    encodeURI('singers_blocks/лого спб.svg'),
-    nn:     encodeURI('singers_blocks/лого нн.svg'),
+    spb:    'singers_blocks/logo-spb.svg',
+    nn:     'singers_blocks/logo-nn.svg',
   };
 
   switchLogo = function (city) {
