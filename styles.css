@@ -13,7 +13,7 @@ html {
 
 body {
   background-color: #FFD600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   color: #111;
   overflow-x: hidden;
 }
@@ -69,7 +69,7 @@ a {
 }
 
 .left-nav a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -97,7 +97,7 @@ a {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -152,7 +152,7 @@ a {
 }
 
 .logo-text {
-  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-weight: 900;
   font-size: min(9vw, 80px);
   line-height: 1;
@@ -185,7 +185,7 @@ a {
 }
 
 .beeline-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #111;
@@ -193,7 +193,7 @@ a {
 }
 
 .event-dates {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-size: clamp(14px, 1.6vw, 20px);
   font-weight: 600;
   color: #111;
@@ -201,7 +201,7 @@ a {
 }
 
 .event-venue {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-size: clamp(12px, 1.4vw, 18px);
   font-weight: 400;
   color: #111;
@@ -263,7 +263,7 @@ a {
 }
 
 .coming-soon-title {
-  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-weight: 900;
   font-size: clamp(24px, 4vw, 48px);
   color: #111;
@@ -298,7 +298,7 @@ a {
 }
 
 .info-content h2 {
-  font-family: 'Unbounded', 'Montserrat', sans-serif;
+  font-family: 'TT Commons', sans-serif;
   font-weight: 900;
   font-size: clamp(22px, 3vw, 36px);
   margin-bottom: 28px;
