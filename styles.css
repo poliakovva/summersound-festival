@@ -151,45 +151,10 @@ a {
   margin-top: 4px;
 }
 
-.logo-text {
-  font-family: 'TT Commons', sans-serif;
-  font-weight: 900;
-  font-size: min(9vw, 80px);
-  line-height: 1;
-  color: #111;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* Partner line: × Beeline */
-.partner-line {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: -4px;
-}
-
-.times-sign {
-  font-size: 22px;
-  font-weight: 700;
-  color: #111;
-  line-height: 1;
-}
-
-.bee-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.beeline-label {
-  font-family: 'TT Commons', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #111;
-  letter-spacing: 0.01em;
+.brand-logo {
+  width: min(72vw, 640px);
+  height: auto;
+  display: block;
 }
 
 .event-dates {
