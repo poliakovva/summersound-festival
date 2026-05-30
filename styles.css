@@ -135,7 +135,7 @@ a {
 /* Each city button keeps its own fixed colour */
 .city-tab[data-city="moscow"] { background: #FFD600; color: #111; }
 .city-tab[data-city="spb"]    { background: #7E00FF; color: #fff; }
-.city-tab[data-city="nn"]     { background: #FF4D00; color: #fff; }
+.city-tab[data-city="nn"]     { background: #FF0493; color: #fff; }
 
 .city-tab:hover { opacity: 0.8; }
 
