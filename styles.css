@@ -378,16 +378,22 @@ details p {
   pointer-events: all;
 }
 
-/* Background S logo — centered-right, behind everything */
+/* Background S logo container — centered-right, behind everything */
 .artist-bg-logo {
   position: absolute;
   width: min(52vw, 480px);
-  height: auto;
   top: 50%;
   left: 56%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
+}
+
+.artist-bg-logo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
 }
 
 /* Back button */

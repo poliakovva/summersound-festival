@@ -3,7 +3,7 @@
 ============================================================= */
 const ARTISTS_DATA = {
   haski: {
-    date: '20.07', name: 'ХАСКИ', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
+    date: '20.07', name: 'ХАСКИ', venue: '19:30, Дизайн завод', logoVariant: 'pink',
     desc: [
       'Большое летнее шоу от Хаски на Summer Sound х билайн!',
       'Главный продюсер русского рэпа отправляется в тур по городам Summer Sound х билайн с незабываемым шоу под открытым небом. В программе — все главные хиты, а также треки с альбома «Партизан».',
@@ -13,7 +13,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/хаски сайт.png')
   },
   lsp: {
-    date: '22.07', name: 'ЛСП', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
+    date: '22.07', name: 'ЛСП', venue: '19:30, Дизайн завод', logoVariant: 'purple',
     desc: [
       'Большое летнее шоу от ЛСП на Summer Sound х билайн!',
       'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
@@ -22,7 +22,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/лсп сайт.png')
   },
   maybe: {
-    date: '25.07', name: 'МЭЙБИ БЭЙБИ', venue: '19:30, Дизайн завод', logo: 'orange_logo.svg',
+    date: '25.07', name: 'МЭЙБИ БЭЙБИ', venue: '19:30, Дизайн завод', logoVariant: 'orange',
     desc: [
       'Главная поп-панк принцесса новой школы отправляется в тур по городам Summer Sound х билайн с ярким шоу под открытым небом.',
       'В программе — все любимые хиты, свежие релизы и максимум энергии, за которую вы её знаете.',
@@ -31,7 +31,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/мейби бейби сайт.png')
   },
   feduk: {
-    date: '27.07', name: 'FEDUK', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
+    date: '27.07', name: 'FEDUK', venue: '19:30, Дизайн завод', logoVariant: 'pink',
     desc: [
       'Главный меланхоличный хитмейкер русской сцены отправляется в тур по городам Summer Sound х билайн с тёплыми летними концертами под открытым небом.',
       'В программе — все главные хиты, новые треки и та самая атмосфера, за которую вы любите FEDUK.',
@@ -40,7 +40,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/фкдук сайт.png')
   },
   iowa: {
-    date: '30.07', name: 'IOWA', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
+    date: '30.07', name: 'IOWA', venue: '19:30, Дизайн завод', logoVariant: 'purple',
     desc: [
       'IOWA на Summer Sound х билайн!',
       'IOWA — это тот редкий пример музыкальной группы, которая, добившись популярности, не потеряла свою уникальную атмосферу. Каждый концерт — энергетический обмен, который продолжает задавать высокую планку в современной музыкальной индустрии.',
@@ -49,7 +49,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/айова сайт.png')
   },
   saluki: {
-    date: '29.07', name: 'SALUKI', venue: '19:30, Дизайн завод', logo: 'orange_logo.svg',
+    date: '29.07', name: 'SALUKI', venue: '19:30, Дизайн завод', logoVariant: 'orange',
     desc: [
       'SALUKI — один из тех, кто задаёт звук современной сцены, смешивая хит-хоп, электронику и поп в свой неповторимый и узнаваемый стиль.',
       'Его летние концерты на Summer Sound х билайн уже стали традицией — и каждый раз это новый уровень. Вас ждёт полное погружение: треки с BOISHIE KURTKI, ваб WILD EAST, главные хиты и новая эра «EUPHORIA».',
@@ -58,7 +58,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/салуки сайт.png')
   },
   lolita: {
-    date: '02.08', name: 'ЛОЛИТА', venue: '19:30, Дизайн завод', logo: encodeURI('лого.svg'),
+    date: '02.08', name: 'ЛОЛИТА', venue: '19:30, Дизайн завод', logoVariant: 'pink',
     desc: [
       'Лолита на Summer Sound х билайн!',
       'Полтора часа живого, откровенного диалога, где сцена исчезает, а остаётся ощущение, будто вы болтаете с близким человеком — той самой подругой, которая и рассмешит до слёз, и скажет правду без прикрас.',
@@ -68,7 +68,7 @@ const ARTISTS_DATA = {
     img: encodeURI('singers/лолита сайт.png')
   },
   cream: {
-    date: '04.08', name: 'CREAM SODA', venue: '19:30, Дизайн завод', logo: 'purple_logo.svg',
+    date: '04.08', name: 'CREAM SODA', venue: '19:30, Дизайн завод', logoVariant: 'purple',
     desc: [
       'Большое летнее шоу от Cream Soda на Summer Sound х билайн!',
       'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
@@ -141,8 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
    outward from the S centroid, then animated with a sine wave.
 ============================================================= */
 
-// Per-city wave players — populated after each SVG loads
-const cityWave = {};
+// Wave players — populated after each SVG loads
+const cityWave    = {};  // keyed by city
+const variantWave = {};  // keyed by logo variant (pink/purple/orange)
 
 // Public helpers (stubs until logos are ready)
 let switchLogo   = () => {};
@@ -154,141 +155,66 @@ const CITY_SVGS = {
   nn:     'singers_blocks/logo-nn.svg',
 };
 
-async function initAllLogos() {
-  const logoWrap = document.querySelector('.logo-wrap');
-  if (!logoWrap) return;
+const VARIANT_SVGS = {
+  pink:   encodeURI('лого.svg'),
+  purple: 'purple_logo.svg',
+  orange: 'orange_logo.svg',
+};
 
-  // Replace the placeholder <img> with the Moscow SVG first so the
-  // page doesn't jump; load SPb and NN in parallel after.
-  await loadCityLogo('moscow', logoWrap, /*replaceImg=*/true);
-  loadCityLogo('spb', logoWrap, false);
-  loadCityLogo('nn',  logoWrap, false);
-
-  // Wire up helpers once Moscow is ready
-  const OVERLAY_BG_LOGOS = {
-    moscow: encodeURI('лого.svg'),
-    spb:    'singers_blocks/logo-spb.svg',
-    nn:     'singers_blocks/logo-nn.svg',
-  };
-
-  switchLogo = function (city) {
-    // Switch hero logo
-    logoWrap.querySelectorAll('[data-logo-city]').forEach(el => {
-      el.style.display = el.dataset.logoCity === city ? 'block' : 'none';
-    });
-    // Update overlay background logo
-    const bgLogo = document.getElementById('artist-bg-logo');
-    if (bgLogo) bgLogo.src = OVERLAY_BG_LOGOS[city];
-  };
-
-  playLogoWave = function () {
-    if (cityWave[activeCity]) cityWave[activeCity]();
-  };
-
-  // Play initial wave
-  playLogoWave();
-}
-
-async function loadCityLogo(city, logoWrap, replaceImg) {
-  let svgText;
-  try {
-    const res = await fetch(CITY_SVGS[city]);
-    svgText = await res.text();
-  } catch (e) {
-    console.warn(`Could not fetch logo for ${city}`, e);
-    return;
-  }
-
-  // ── Parse SVG ──────────────────────────────────────────────
-  const temp = document.createElement('div');
-  temp.innerHTML = svgText;
-  const svgEl = temp.querySelector('svg');
-  if (!svgEl) return;
-
-  svgEl.removeAttribute('width');
-  svgEl.removeAttribute('height');
-  svgEl.classList.add('logo-svg');
-  svgEl.style.overflow = 'visible';
-  svgEl.dataset.logoCity = city;
-
-  // Only the active city is visible on load
-  if (city !== activeCity) svgEl.style.display = 'none';
-
-  // ── Helper: first M x y ────────────────────────────────────
+/* =============================================================
+   Shared SVG wave setup
+   Parses an already-fetched SVG element: groups paths into pills,
+   wraps each in <g data-nx data-ny>, then wires a playWave()
+   function that's stored in waveStore[key].
+============================================================= */
+function setupSVGWave(svgEl, waveStore, key) {
   function firstCoord(path) {
     const m = (path.getAttribute('d') || '').match(/M\s*([\d.-]+)\s+([\d.-]+)/);
     return m ? [parseFloat(m[1]), parseFloat(m[2])] : null;
   }
 
-  // ── Group paths by proximity (threshold 80 SVG units) ──────
-  // (NN viewBox is 1800×2401 vs 762×1016 for others — scale threshold)
-  const vbW      = parseFloat((svgEl.getAttribute('viewBox') || '0 0 762 1016').split(' ')[2]);
+  const vbW       = parseFloat((svgEl.getAttribute('viewBox') || '0 0 762 1016').split(' ')[2]);
   const THRESHOLD = 80 * (vbW / 762);
-
-  const allPaths = [...svgEl.querySelectorAll('path')];
-  const groups   = [];
-  let   cur      = [];
-  let   prevC    = null;
+  const allPaths  = [...svgEl.querySelectorAll('path')];
+  const groups    = [];
+  let   cur       = [], prevC = null;
 
   allPaths.forEach(path => {
     const c = firstCoord(path);
-    if (!c) {
-      if (cur.length) { groups.push(cur); cur = []; }
-      prevC = null;
-      return;
-    }
-    if (prevC && Math.hypot(c[0] - prevC[0], c[1] - prevC[1]) > THRESHOLD) {
-      groups.push(cur);
-      cur = [];
-    }
+    if (!c) { if (cur.length) { groups.push(cur); cur = []; } prevC = null; return; }
+    if (prevC && Math.hypot(c[0] - prevC[0], c[1] - prevC[1]) > THRESHOLD) { groups.push(cur); cur = []; }
     cur.push(path);
     prevC = c;
   });
   if (cur.length) groups.push(cur);
 
-  // ── Compute centroids ──────────────────────────────────────
-  const pills = groups
-    .filter(g => g.length >= 3)
-    .map(group => {
-      const coords = group.map(firstCoord).filter(Boolean);
-      const cx = coords.reduce((s, c) => s + c[0], 0) / coords.length;
-      const cy = coords.reduce((s, c) => s + c[1], 0) / coords.length;
-      return { group, cx, cy };
-    });
+  const pills = groups.filter(g => g.length >= 3).map(group => {
+    const coords = group.map(firstCoord).filter(Boolean);
+    const cx = coords.reduce((s, c) => s + c[0], 0) / coords.length;
+    const cy = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+    return { group, cx, cy };
+  });
 
   const sCx = pills.reduce((s, p) => s + p.cx, 0) / pills.length;
   const sCy = pills.reduce((s, p) => s + p.cy, 0) / pills.length;
-
   pills.sort((a, b) => a.cy - b.cy);
 
-  // ── Wrap each group in <g data-nx data-ny> ─────────────────
   pills.forEach(({ group, cx, cy }) => {
     const g  = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    const dx = cx - sCx;
-    const dy = cy - sCy;
-    const d  = Math.hypot(dx, dy) || 1;
+    const dx = cx - sCx, dy = cy - sCy, d = Math.hypot(dx, dy) || 1;
     g.dataset.nx = (dx / d).toFixed(4);
     g.dataset.ny = (dy / d).toFixed(4);
     group[0].parentNode.insertBefore(g, group[0]);
     group.forEach(p => g.appendChild(p));
   });
 
-  // ── Insert into DOM ────────────────────────────────────────
-  if (replaceImg) {
-    const imgEl = logoWrap.querySelector('.logo-svg');
-    logoWrap.replaceChild(svgEl, imgEl);
-  } else {
-    logoWrap.appendChild(svgEl);
-  }
-
-  // ── Build wave player for this city ───────────────────────
   const gEls      = [...svgEl.querySelectorAll('g[data-nx]')];
-  const MOVE      = 50 * (vbW / 762); // scale movement to viewBox
+  const MOVE      = 50 * (vbW / 762);
   const PILL_DUR  = 520;
   const WAVE_SPAN = 1800;
   let   pending   = [];
 
-  cityWave[city] = function () {
+  waveStore[key] = function () {
     if (svgEl.style.display === 'none') return;
     pending.forEach(id => clearTimeout(id));
     pending = [];
@@ -319,6 +245,100 @@ async function loadCityLogo(city, logoWrap, replaceImg) {
 }
 
 /* =============================================================
+   Hero logo init (city-switching S logos)
+============================================================= */
+async function initAllLogos() {
+  const logoWrap = document.querySelector('.logo-wrap');
+  if (!logoWrap) return;
+
+  await loadCityLogo('moscow', logoWrap, /*replaceImg=*/true);
+  loadCityLogo('spb', logoWrap, false);
+  loadCityLogo('nn',  logoWrap, false);
+
+  switchLogo = function (city) {
+    logoWrap.querySelectorAll('[data-logo-city]').forEach(el => {
+      el.style.display = el.dataset.logoCity === city ? 'block' : 'none';
+    });
+  };
+
+  playLogoWave = function () {
+    if (cityWave[activeCity]) cityWave[activeCity]();
+  };
+
+  playLogoWave();
+
+  // Load overlay logo variants in background
+  initOverlayLogos();
+}
+
+async function loadCityLogo(city, logoWrap, replaceImg) {
+  let svgText;
+  try {
+    const res = await fetch(CITY_SVGS[city]);
+    svgText = await res.text();
+  } catch (e) {
+    console.warn(`Could not fetch logo for ${city}`, e);
+    return;
+  }
+
+  const temp = document.createElement('div');
+  temp.innerHTML = svgText;
+  const svgEl = temp.querySelector('svg');
+  if (!svgEl) return;
+
+  svgEl.removeAttribute('width');
+  svgEl.removeAttribute('height');
+  svgEl.classList.add('logo-svg');
+  svgEl.style.overflow = 'visible';
+  svgEl.dataset.logoCity = city;
+  if (city !== activeCity) svgEl.style.display = 'none';
+
+  setupSVGWave(svgEl, cityWave, city);
+
+  if (replaceImg) {
+    const imgEl = logoWrap.querySelector('.logo-svg');
+    logoWrap.replaceChild(svgEl, imgEl);
+  } else {
+    logoWrap.appendChild(svgEl);
+  }
+}
+
+/* =============================================================
+   Overlay logo variants (per-artist animated S logos)
+============================================================= */
+async function initOverlayLogos() {
+  const wrap = document.getElementById('artist-logo-wrap');
+  if (!wrap) return;
+  for (const [key, url] of Object.entries(VARIANT_SVGS)) {
+    loadOverlayLogo(key, url, wrap);
+  }
+}
+
+async function loadOverlayLogo(key, url, wrap) {
+  let svgText;
+  try {
+    const res = await fetch(url);
+    svgText = await res.text();
+  } catch (e) {
+    console.warn(`Could not fetch overlay logo ${key}`, e);
+    return;
+  }
+
+  const temp = document.createElement('div');
+  temp.innerHTML = svgText;
+  const svgEl = temp.querySelector('svg');
+  if (!svgEl) return;
+
+  svgEl.removeAttribute('width');
+  svgEl.removeAttribute('height');
+  svgEl.style.cssText = 'width:100%;height:auto;display:none;overflow:visible;';
+  svgEl.dataset.logoVariant = key;
+
+  setupSVGWave(svgEl, variantWave, key);
+  wrap.appendChild(svgEl);
+}
+
+/* =============================================================
    Artist overlay — open / close
 ============================================================= */
 function openArtistOverlay(artistId) {
@@ -341,9 +361,13 @@ function openArtistOverlay(artistId) {
   imgEl.src = data.img;
   imgEl.alt = data.name;
 
-  // Set artist-specific background S logo
-  const bgLogo = document.getElementById('artist-bg-logo');
-  if (bgLogo) bgLogo.src = data.logo;
+  // Show the right S logo variant and play its wave
+  const wrap = document.getElementById('artist-logo-wrap');
+  if (wrap) {
+    wrap.querySelectorAll('[data-logo-variant]').forEach(el => {
+      el.style.display = el.dataset.logoVariant === data.logoVariant ? 'block' : 'none';
+    });
+  }
 
   // Sync city tabs inside overlay to current active city
   overlay.querySelectorAll('.city-tab').forEach(t => {
@@ -354,6 +378,9 @@ function openArtistOverlay(artistId) {
   overlay.classList.add('open');
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+
+  // Play wave animation for this artist's logo variant
+  if (variantWave[data.logoVariant]) variantWave[data.logoVariant]();
 }
 
 function closeArtistOverlay() {
