@@ -8,11 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const city = tab.dataset.city;
+
+      // Switch active tab
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+
+      // Switch artist panel
       panels.forEach(p => p.classList.remove('active'));
       const target = document.getElementById(`artists-${city}`);
       if (target) target.classList.add('active');
+
+      // Switch page theme
+      document.body.classList.remove('theme-moscow', 'theme-spb', 'theme-nn');
+      if (city !== 'moscow') document.body.classList.add(`theme-${city}`);
+
       document.querySelector('.artists-section').scrollIntoView({
         behavior: 'smooth', block: 'start'
       });

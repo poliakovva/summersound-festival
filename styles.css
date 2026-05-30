@@ -1,4 +1,25 @@
 /* ===========================
+   THEME VARIABLES
+=========================== */
+:root {
+  --page-bg:  #FFD600;
+  --page-fg:  #111;
+  --page-sub: rgba(0, 0, 0, 0.45);
+}
+
+body.theme-spb {
+  --page-bg:  #7E00FF;
+  --page-fg:  #fff;
+  --page-sub: rgba(255, 255, 255, 0.5);
+}
+
+body.theme-nn {
+  --page-bg:  #FF0493;
+  --page-fg:  #111;
+  --page-sub: rgba(0, 0, 0, 0.45);
+}
+
+/* ===========================
    RESET & BASE
 =========================== */
 *, *::before, *::after {
@@ -12,10 +33,11 @@ html {
 }
 
 body {
-  background-color: #FFD600;
+  background-color: var(--page-bg);
   font-family: 'TT Commons', sans-serif;
-  color: #111;
+  color: var(--page-fg);
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 a {
@@ -30,7 +52,8 @@ a {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #FFD600;
+  background-color: var(--page-bg);
+  transition: background-color 0.35s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,7 +96,7 @@ a {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #111;
+  color: inherit;
   line-height: 1.5;
   transition: opacity 0.2s;
 }
@@ -87,34 +110,37 @@ a {
 =========================== */
 .city-tabs {
   display: flex;
-  gap: 4px;
-  background: rgba(0, 0, 0, 0.10);
-  padding: 5px;
-  border-radius: 50px;
+  gap: 8px;
+  background: none;
+  padding: 0;
 }
 
 .city-tab {
-  background: transparent;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
   font-family: 'TT Commons', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #333;
-  padding: 8px 20px;
+  padding: 7px 20px;
   border-radius: 50px;
-  transition: background 0.25s, color 0.25s;
+  transition: opacity 0.2s, background 0.25s, border-color 0.25s, color 0.25s;
   white-space: nowrap;
 }
 
-.city-tab:hover {
-  background: rgba(0, 0, 0, 0.08);
-}
+/* Each city button keeps its own fixed colour */
+.city-tab[data-city="moscow"] { background: #FFD600; color: #111; }
+.city-tab[data-city="spb"]    { background: #7E00FF; color: #fff; }
+.city-tab[data-city="nn"]     { background: #FF4D00; color: #fff; }
 
+.city-tab:hover { opacity: 0.8; }
+
+/* Active: ghost with page-contrast border */
 .city-tab.active {
-  background: #111;
-  color: #FFD600;
+  background: transparent !important;
+  border-color: var(--page-fg);
+  color: var(--page-fg) !important;
+  opacity: 1;
 }
 
 /* ===========================
@@ -179,7 +205,8 @@ a {
    ARTISTS SECTION
 =========================== */
 .artists-section {
-  background-color: #FFD600;
+  background-color: var(--page-bg);
+  transition: background-color 0.35s ease;
   padding: 40px 48px 80px;
 }
 
@@ -232,14 +259,14 @@ a {
   font-family: 'TT Commons', sans-serif;
   font-weight: 900;
   font-size: clamp(24px, 4vw, 48px);
-  color: #111;
+  color: inherit;
   margin-bottom: 16px;
 }
 
 .coming-soon-sub {
   font-size: 18px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--page-sub);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -248,7 +275,8 @@ a {
    INFO SECTIONS (filler)
 =========================== */
 .info-section {
-  background-color: #FFD600;
+  background-color: var(--page-bg);
+  transition: background-color 0.35s ease;
   padding: 80px 48px;
   border-top: 2px solid rgba(0, 0, 0, 0.10);
 }
