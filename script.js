@@ -1,4 +1,84 @@
 /* =============================================================
+   Artist data
+============================================================= */
+const ARTISTS_DATA = {
+  haski: {
+    date: '20.07', name: 'ХАСКИ', venue: '19:30, Дизайн завод',
+    desc: [
+      'Большое летнее шоу от Хаски на Summer Sound х билайн!',
+      'Главный продюсер русского рэпа отправляется в тур по городам Summer Sound х билайн с незабываемым шоу под открытым небом. В программе — все главные хиты, а также треки с альбома «Партизан».',
+      'Мы должны вас увидеть. Не пропустите:\n20 июля — Москва, Дизайн завод\n2 августа — Нижний Новгород, Ракушка\n8 и 9 августа — Санкт-Петербург, 10/12 Мануфактура',
+      '18+'
+    ],
+    img: encodeURI('singers/хаски сайт.png')
+  },
+  lsp: {
+    date: '22.07', name: 'ЛСП', venue: '19:30, Дизайн завод',
+    desc: [
+      'Большое летнее шоу от ЛСП на Summer Sound х билайн!',
+      'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
+      'В программе — главные хиты, новые треки и всё, за что вы любите ЛСП. Мы должны вас увидеть. Не пропустите:\n22 июля — Москва, Дизайн завод\n4 августа — Нижний Новгород, Ракушка\n7 августа — Санкт-Петербург, 10/12 Мануфактура'
+    ],
+    img: encodeURI('singers/лсп сайт.png')
+  },
+  maybe: {
+    date: '25.07', name: 'МЭЙБИ БЭЙБИ', venue: '19:30, Дизайн завод',
+    desc: [
+      'Главная поп-панк принцесса новой школы отправляется в тур по городам Summer Sound х билайн с ярким шоу под открытым небом.',
+      'В программе — все любимые хиты, свежие релизы и максимум энергии, за которую вы её знаете.',
+      'Мы должны вас увидеть. Не пропустите:\n25 июля — Москва, Дизайн завод\n5 августа — Нижний Новгород, Ракушка\n8 августа — Санкт-Петербург, 10/12 Мануфактура'
+    ],
+    img: encodeURI('singers/мейби бейби сайт.png')
+  },
+  feduk: {
+    date: '27.07', name: 'FEDUK', venue: '19:30, Дизайн завод',
+    desc: [
+      'Главный меланхоличный хитмейкер русской сцены отправляется в тур по городам Summer Sound х билайн с тёплыми летними концертами под открытым небом.',
+      'В программе — все главные хиты, новые треки и та самая атмосфера, за которую вы любите FEDUK.',
+      'Мы должны вас увидеть. Не пропустите:\n27 июля — Москва, Дизайн завод\n7 августа — Нижний Новгород, Ракушка\n9 августа — Санкт-Петербург, 10/12 Мануфактура'
+    ],
+    img: encodeURI('singers/фкдук сайт.png')
+  },
+  iowa: {
+    date: '30.07', name: 'IOWA', venue: '19:30, Дизайн завод',
+    desc: [
+      'IOWA на Summer Sound х билайн!',
+      'IOWA — это тот редкий пример музыкальной группы, которая, добившись популярности, не потеряла свою уникальную атмосферу. Каждый концерт — энергетический обмен, который продолжает задавать высокую планку в современной музыкальной индустрии.',
+      'Сезон танцев открыт:\nМосква, Дизайн завод — 30 июля'
+    ],
+    img: encodeURI('singers/айова сайт.png')
+  },
+  saluki: {
+    date: '29.07', name: 'SALUKI', venue: '19:30, Дизайн завод',
+    desc: [
+      'SALUKI — один из тех, кто задаёт звук современной сцены, смешивая хит-хоп, электронику и поп в свой неповторимый и узнаваемый стиль.',
+      'Его летние концерты на Summer Sound х билайн уже стали традицией — и каждый раз это новый уровень. Вас ждёт полное погружение: треки с BOISHIE KURTKI, ваб WILD EAST, главные хиты и новая эра «EUPHORIA».',
+      'Запоминайте даты:\n29 июля — Санкт-Петербург, Мануфактура\n30 июля — Москва, Дизайн завод\n7 августа — Нижний Новгород, Ракушка'
+    ],
+    img: encodeURI('singers/салуки сайт.png')
+  },
+  lolita: {
+    date: '02.08', name: 'ЛОЛИТА', venue: '19:30, Дизайн завод',
+    desc: [
+      'Лолита на Summer Sound х билайн!',
+      'Полтора часа живого, откровенного диалога, где сцена исчезает, а остаётся ощущение, будто вы болтаете с близким человеком — той самой подругой, которая и рассмешит до слёз, и скажет правду без прикрас.',
+      'Голос на концертах Лолиты теплее, и ваши яркие. И да — слова «Титаника» лучше освежить заранее.',
+      '2 августа — Москва, Дизайн завод'
+    ],
+    img: encodeURI('singers/лолита сайт.png')
+  },
+  cream: {
+    date: '04.08', name: 'CREAM SODA', venue: '19:30, Дизайн завод',
+    desc: [
+      'Большое летнее шоу от Cream Soda на Summer Sound х билайн!',
+      'Главный романтик тёмного поп-рока отправляется в тур по городам Summer Sound х билайн с атмосферными концертами под открытым небом.',
+      'В программе — главные хиты, новые треки и всё, за что вы любите Cream Soda. Мы должны вас увидеть. Не пропустите:\n4 августа — Нижний Новгород, Ракушка\n7 августа — Санкт-Петербург, 10/12 Мануфактура'
+    ],
+    img: encodeURI('singers/крем сайт.png')
+  }
+};
+
+/* =============================================================
    City tab switching
 ============================================================= */
 let activeCity = 'moscow';
@@ -12,9 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const city = tab.dataset.city;
       activeCity = city;
 
-      // Switch active tab
+      // Close artist overlay if open
+      closeArtistOverlay();
+
+      // Switch active tab (all sets of tabs)
       tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      document.querySelectorAll(`.city-tab[data-city="${city}"]`)
+        .forEach(t => t.classList.add('active'));
 
       // Switch artist panel
       panels.forEach(p => p.classList.remove('active'));
@@ -29,6 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
       switchLogo(city);
       playLogoWave();
     });
+  });
+
+  // Artist card clicks
+  document.querySelectorAll('.artist-card[data-artist]').forEach(card => {
+    card.addEventListener('click', () => openArtistOverlay(card.dataset.artist));
+  });
+
+  // Close overlay on back button
+  document.getElementById('artist-close').addEventListener('click', closeArtistOverlay);
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeArtistOverlay();
   });
 
   // Load all three city logos and set up animations
@@ -68,10 +165,20 @@ async function initAllLogos() {
   loadCityLogo('nn',  logoWrap, false);
 
   // Wire up helpers once Moscow is ready
+  const OVERLAY_BG_LOGOS = {
+    moscow: encodeURI('лого.svg'),
+    spb:    encodeURI('singers_blocks/лого спб.svg'),
+    nn:     encodeURI('singers_blocks/лого нн.svg'),
+  };
+
   switchLogo = function (city) {
+    // Switch hero logo
     logoWrap.querySelectorAll('[data-logo-city]').forEach(el => {
       el.style.display = el.dataset.logoCity === city ? 'block' : 'none';
     });
+    // Update overlay background logo
+    const bgLogo = document.getElementById('artist-bg-logo');
+    if (bgLogo) bgLogo.src = OVERLAY_BG_LOGOS[city];
   };
 
   playLogoWave = function () {
@@ -209,4 +316,44 @@ async function loadCityLogo(city, logoWrap, replaceImg) {
       pending.push(id);
     });
   };
+}
+
+/* =============================================================
+   Artist overlay — open / close
+============================================================= */
+function openArtistOverlay(artistId) {
+  const data    = ARTISTS_DATA[artistId];
+  if (!data) return;
+
+  const overlay = document.getElementById('artist-overlay');
+
+  // Fill content
+  document.getElementById('ap-date').textContent  = data.date;
+  document.getElementById('ap-name').textContent  = data.name;
+  document.getElementById('ap-venue').textContent = data.venue;
+
+  const descEl = document.getElementById('ap-desc');
+  descEl.innerHTML = data.desc
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('');
+
+  const imgEl = document.getElementById('ap-img');
+  imgEl.src = data.img;
+  imgEl.alt = data.name;
+
+  // Sync city tabs inside overlay to current active city
+  overlay.querySelectorAll('.city-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.city === activeCity);
+  });
+
+  // Show overlay
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArtistOverlay() {
+  const overlay = document.getElementById('artist-overlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
 }

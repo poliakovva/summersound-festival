@@ -50,14 +50,14 @@
     <!-- МОСКВА -->
     <div class="city-artists active" id="artists-moscow">
       <div class="artists-grid">
-        <img src="singers/хаски сайт.png"       alt="ХАСКИ"       class="artist-card" />
-        <img src="singers/лсп сайт.png"          alt="ЛСП"         class="artist-card" />
-        <img src="singers/мейби бейби сайт.png"  alt="МЭЙБИ БЭЙБИ" class="artist-card" />
-        <img src="singers/фкдук сайт.png"        alt="FEDUK"       class="artist-card" />
-        <img src="singers/айова сайт.png"        alt="IOWA"        class="artist-card" />
-        <img src="singers/салуки сайт.png"       alt="SALUKI"      class="artist-card" />
-        <img src="singers/лолита сайт.png"       alt="ЛОЛИТА"      class="artist-card" />
-        <img src="singers/крем сайт.png"         alt="CREAM SODA"  class="artist-card" />
+        <img src="singers/хаски сайт.png"       alt="ХАСКИ"       class="artist-card" data-artist="haski" />
+        <img src="singers/лсп сайт.png"          alt="ЛСП"         class="artist-card" data-artist="lsp" />
+        <img src="singers/мейби бейби сайт.png"  alt="МЭЙБИ БЭЙБИ" class="artist-card" data-artist="maybe" />
+        <img src="singers/фкдук сайт.png"        alt="FEDUK"       class="artist-card" data-artist="feduk" />
+        <img src="singers/айова сайт.png"        alt="IOWA"        class="artist-card" data-artist="iowa" />
+        <img src="singers/салуки сайт.png"       alt="SALUKI"      class="artist-card" data-artist="saluki" />
+        <img src="singers/лолита сайт.png"       alt="ЛОЛИТА"      class="artist-card" data-artist="lolita" />
+        <img src="singers/крем сайт.png"         alt="CREAM SODA"  class="artist-card" data-artist="cream" />
       </div>
     </div>
 
@@ -126,6 +126,39 @@
       <p>Заявки на пресс-аккредитацию принимаются до 10 июля. Отправьте запрос на <a href="mailto:press@summersound.ru">press@summersound.ru</a> с темой письма «Аккредитация — [СМИ]».</p>
     </div>
   </section>
+
+  <!-- ===== ARTIST OVERLAY ===== -->
+  <div class="artist-overlay" id="artist-overlay">
+
+    <!-- Background S logo -->
+    <img class="artist-bg-logo" id="artist-bg-logo" src="лого.svg" alt="" aria-hidden="true" />
+
+    <!-- Header -->
+    <div class="top-bar">
+      <button class="artist-back-btn" id="artist-close">
+        ← НАЗАД
+      </button>
+      <div class="city-tabs">
+        <button class="city-tab active" data-city="moscow">МОСКВА</button>
+        <button class="city-tab" data-city="spb">САНКТ-ПЕТЕРБУРГ</button>
+        <button class="city-tab" data-city="nn">НИЖНИЙ НОВГОРОД</button>
+      </div>
+      <div class="top-bar-spacer"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="artist-body">
+      <div class="artist-left">
+        <p class="artist-date" id="ap-date"></p>
+        <h1 class="artist-name" id="ap-name"></h1>
+        <p class="artist-venue" id="ap-venue"></p>
+        <div class="artist-desc" id="ap-desc"></div>
+      </div>
+      <div class="artist-right">
+        <img class="artist-card-lg" id="ap-img" src="" alt="" />
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -358,3 +358,119 @@ details p {
   line-height: 1.65;
   opacity: 0.85;
 }
+
+/* ===========================
+   ARTIST OVERLAY
+=========================== */
+.artist-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--page-bg);
+  z-index: 200;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background-color 0.35s ease;
+}
+
+.artist-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Background S logo — centered-right, behind everything */
+.artist-bg-logo {
+  position: absolute;
+  width: min(52vw, 480px);
+  height: auto;
+  top: 50%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Back button */
+.artist-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'TT Commons', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+}
+
+.artist-back-btn:hover { opacity: 0.6; }
+
+/* Two-column artist layout */
+.artist-body {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 130px 48px 60px;
+  gap: 48px;
+}
+
+.artist-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.artist-right {
+  width: min(38vw, 400px);
+  flex-shrink: 0;
+}
+
+.artist-card-lg {
+  width: 100%;
+  border-radius: 24px;
+  display: block;
+}
+
+/* Artist text */
+.artist-date {
+  font-family: 'TT Commons', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4.5vw, 56px);
+  color: inherit;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.artist-name {
+  font-family: 'TT Commons', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 8vw, 96px);
+  color: inherit;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.artist-venue {
+  font-family: 'TT Commons', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: inherit;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+.artist-desc p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: inherit;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
